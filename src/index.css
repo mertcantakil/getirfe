@@ -1,13 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e5e5e5 !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/*Layout CSS*/
+.nav {
+  background-color: #1ea4ce;
+  height: 76.64px;
+}
+.logo {
+  position: absolute;
+  width: 141.25px;
+  height: 40.32px;
+  top: 17px;
+}
+.cardSpacing {
+  margin-top: 24px;
+  height: 296px;
+  overflow: hidden;
+}
+.productCardSpacing {
+  margin-top: 20px !important;
+}
+.filter-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: #697488;
+}
+.productList-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
+  color: #6f6f6f;
+}
+
+/*Product CSS*/
+.card {
+  border-radius: 10px;
+}
+.card-body {
+  overflow: auto;
+}
+
+.price {
+  font-family: "Helvetica", "Open Sans", "sans-serif";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #1ea4ce;
+}
+.product-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #191919;
+}
+.addButton{
+  background: #1EA4CE !important;
+  border-radius: 2px !important;
+  width: 100% !important;
+  height: 22px !important;
+  text-align: center !important;
+  vertical-align: center !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  line-height: 20px !important;
+  padding:0 !important;
+  color: #FFFFFF !important;
+  border:0 !important;
+}
+
+/*Filter CSS*/
+.css-ahj2mt-MuiTypography-root{
+  font-family: "Open Sans", sans-serif !important;
+  color: #525252 !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  /* identical to box height, or 129% */
+  letter-spacing: 0.16px !important;
+}
+::placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  color: #A8A8A8;
+}
+/*Cart Button CSS*/
+.cartButtonLink {
+  height: 100% !important;
+  padding:0 !important;
+  
+}
+.cartButton{
+  width: 129px !important;
+  background-color: #147594 !important;
+  color:#FFFFFF;
+  height: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.16px;
+}
+
+/*Cart Detail CSS*/
+.cartDetailDiv{
+  box-sizing: border-box;
+  width: 100%;
+  height: 338px;
+  border: 6px solid #1EA4CE;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+}
+.cartDetailComp{
+  padding-right: 4px !important;
+}
+.cart-title{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.16px;
+  color: #191919;
+}
+.cart-price{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.16px;
+  color: #1EA4CE;
+}
+
+.cart-button{
+  width: 25% !important;
+  background-color: #FFFFFF !important;
+  border:0 !important;
+  color: #1EA4CE !important;
+}
+.card-buttons{
+  align-items: center;
+  justify-content: center;
+}
+.total-amount{
+  height: 51px;
+  width: 92px;
+  box-sizing: border-box;
+  border: 1px solid #1EA4CE;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1EA4CE;
+  float:right;
+  margin-top:16px;
+}
+.cart-item{
+  padding-top:5px
 }

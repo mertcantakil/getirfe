@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Navi from "./Navi";
+import SortingFilter from "./SortingFilter";
+import BrandsFilter from "./BrandsFilter";
+import TagsFilter from "./TagsFilter";
+import ProductList from "./ProductList";
+import CartDetails from "./CartDetails";
+import { Container, Row, Col } from "reactstrap";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload2.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Reactt
-        </a>
-      </header>
+      <Navi></Navi>
+      <Container className="mt-4">
+        <Row>
+          <Col xs="3">
+            <SortingFilter></SortingFilter>
+            <BrandsFilter></BrandsFilter>
+            <TagsFilter></TagsFilter>
+          </Col>
+          <Col xs="6">
+            <ProductList></ProductList>
+          </Col>
+          <Col xs="3" className="cartDetailComp">
+            <CartDetails></CartDetails>
+          </Col>
+        </Row>
+      </Container>
+
     </div>
   );
 }
