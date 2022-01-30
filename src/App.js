@@ -1,9 +1,9 @@
-import Navi from "./Navi";
-import SortingFilter from "./SortingFilter";
-import BrandsFilter from "./BrandsFilter";
-import TagsFilter from "./TagsFilter";
-import ProductList from "./ProductList";
-import CartDetails from "./CartDetails";
+import Navi from "./components/Navi";
+import SortingFilter from "./components/SortingFilter";
+import BrandsFilter from "./components/BrandsFilter";
+import TagsFilter from "./components/TagsFilter";
+import ProductList from "./components/ProductList";
+import CartDetails from "./components/CartDetails";
 import { Container, Row, Col } from "reactstrap";
 import { React, Component } from "react";
 import { Grid } from 'react-loader-spinner'
@@ -51,8 +51,8 @@ export default class App extends Component {
       this.dividedProducts();
       this.getTagsNameAndCounts();
     })
-    this.setState({isloadershow: false});
-    
+    this.setState({ isloadershow: false });
+
   }
 
   async getCompanies(id) {
@@ -188,7 +188,7 @@ export default class App extends Component {
 
   renderLoading() {
     return (
-      <Grid color="#00BFFF" height={80} width={80}/>
+      <Grid color="#00BFFF" height={80} width={80} />
     )
   }
 
@@ -199,8 +199,8 @@ export default class App extends Component {
     const renderLoading = () => {
       if (isloadershow) {
         return <div class="loader">
-              <Grid color="#00BFFF" height={80} width={80} />
-          </div>
+          <Grid color="#00BFFF" height={80} width={80} />
+        </div>
       }
       else {
         return <Container className="mt-4">
@@ -251,7 +251,7 @@ export default class App extends Component {
       <div className="App">
         <Navi cart={this.state.cart} ></Navi>
         {renderLoading()}
-       
+
       </div>
     )
   }

@@ -5,14 +5,14 @@ import Product from './Product';
 export default class ProductList extends Component {
 
   state = {
-    selectedToggle : '',
+    selectedToggle: '',
   }
 
-  clickHandler = (event) =>{
+  clickHandler = (event) => {
     this.props.changeSelectedButton(event.target.innerText);
-    this.setState({selectedToggle: event.target.innerText})
+    this.setState({ selectedToggle: event.target.innerText })
   }
-  
+
   render() {
     return <div>
       <h4 className='productList-title'>Products</h4>
@@ -24,13 +24,13 @@ export default class ProductList extends Component {
 
       <Card className='productListCard'>
         <CardBody>
-          <Product 
+          <Product
             productlist={this.props.products}
             addToCart={this.props.addToCart}
             currentSortingMode={this.props.currentSortingMode}
             selectedToggle={this.state.selectedToggle}
-            >
-           </Product>
+          >
+          </Product>
         </CardBody>
       </Card>
     </div>;

@@ -7,13 +7,13 @@ import Checkbox from '@mui/material/Checkbox';
 export default class BrandsFilter extends Component {
 
   state = {
-    searchStr : "",
+    searchStr: "",
   }
   clickHandler = (event) => (
     this.props.selectedBrands(event.target.labels[0].innerText)
   )
   handleSearch = (event) => (
-    this.setState({searchStr : event.target.value})
+    this.setState({ searchStr: event.target.value })
   )
 
   render() {
@@ -34,10 +34,10 @@ export default class BrandsFilter extends Component {
             />
             {
               this.props.companies.map((company, index) => {
-                if(this.state.searchStr === ""){
+                if (this.state.searchStr === "") {
                   return <FormControlLabel control={<Checkbox />} label={company.slug} key={index} onClick={this.clickHandler} />
-                }else{
-                  if(company.slug.includes(this.state.searchStr)){
+                } else {
+                  if (company.slug.includes(this.state.searchStr)) {
                     return <FormControlLabel control={<Checkbox />} label={company.slug} key={index} onClick={this.clickHandler} />
                   }
                 }

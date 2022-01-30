@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardImg, Button } from "reactstrap";
-import mug from "./images/black-mug.png";
-import shirt from "./images/shirt.png";
+import mug from "../images/black-mug.png";
+import shirt from "../images/shirt.png";
 import Pagination from "react-js-pagination";
 
 export default class Product extends Component {
@@ -58,10 +58,10 @@ export default class Product extends Component {
         const dividedProducts = this.props.productlist.length > 0 ? this.props.productlist : [];
         const allProducts = [].concat.apply([], dividedProducts);
 
-        if (this.props.currentSortingMode === "lowToHigh")      this.priceFilterLowToHigh(allProducts);
-        else if (this.props.currentSortingMode === "highToLow") this.priceFilterHighToLow(allProducts); 
-        else if (this.props.currentSortingMode === "oldToNew")  this.sortOldToNew(allProducts);
-        else if (this.props.currentSortingMode === "newToOld")  this.sortNewToOld(allProducts);
+        if (this.props.currentSortingMode === "lowToHigh") this.priceFilterLowToHigh(allProducts);
+        else if (this.props.currentSortingMode === "highToLow") this.priceFilterHighToLow(allProducts);
+        else if (this.props.currentSortingMode === "oldToNew") this.sortOldToNew(allProducts);
+        else if (this.props.currentSortingMode === "newToOld") this.sortNewToOld(allProducts);
 
         // Logic for displaying current todos
         const indexOfLastTodo = currentPage * productsPerPage;
@@ -74,7 +74,7 @@ export default class Product extends Component {
                     <Card body className='productCard'>
                         <CardImg
                             alt="Card image cap"
-                            src={this.props.selectedToggle === 'mug' || this.props.selectedToggle === ''  ? mug: shirt}
+                            src={this.props.selectedToggle === 'mug' || this.props.selectedToggle === '' ? mug : shirt}
                             top
                             width="92px"
                             height="92px"

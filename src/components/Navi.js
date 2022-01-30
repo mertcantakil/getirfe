@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Nav, NavItem, NavLink, Button } from "reactstrap";
-import Logo from './images/Logo.png';
+import Logo from '../images/Logo.png';
 import { BsCartPlusFill } from "react-icons/bs";
 
 export default class Navi extends Component {
