@@ -8,5 +8,5 @@ https://github.com/typicode/json-server
 
 The combination of the item.json file and the companies.json file is the db.json file. You just need to build it.
 
-Source code live demo hero: https://master.dt7tgiijmh1wt.amplifyapp.com/
+AWS Live demo is here :  https://master.dt7tgiijmh1wt.amplifyapp.com/
 
