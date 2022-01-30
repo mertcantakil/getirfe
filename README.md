@@ -8,7 +8,15 @@ https://github.com/typicode/json-server
 
 The combination of the item.json file and the companies.json file is the db.json file. You just need to build it.
 
-AWS Live demo is here :  https://master.dt7tgiijmh1wt.amplifyapp.com/
+<b>Before click the demo link, you must launch json-server in your local !!! </b> <br />
+<b>1.) Create new folder </b> <br />
+<b>2.) Clone project </b> <br />
+<b>3.) you will see api folder in src, please move the same path getirfe folder.</b> <br />
+![image](https://user-images.githubusercontent.com/28295214/151719328-52ea0a6f-eeb0-40fb-97a0-1bdd830a1d63.png) <br />
+<b>4.) launch json-server --watch db.json </b> <br />
+<b>5.) Then you are ready to click demo link :) </b> <br />
+
+<b>AWS Live demo is here :  https://master.dt7tgiijmh1wt.amplifyapp.com/
 
 
 # Getting Started with Create React App
