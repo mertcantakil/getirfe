@@ -25,11 +25,13 @@ export default class App extends Component {
 
   }
 
+  //react lifecylce
   componentDidMount() {
     this.getItems();
     this.getCompanies();
   }
 
+  //get items
   async getItems(id, name) {
 
     let url = `http://localhost:3000/items`;
@@ -55,6 +57,7 @@ export default class App extends Component {
 
   }
 
+  //get companies
   async getCompanies(id) {
 
     let url = `http://localhost:3000/companies`;
@@ -75,6 +78,7 @@ export default class App extends Component {
     this.setState({ companies: jsonCompanies })
   }
 
+  //divide all products array 
   dividedProducts() {
     let i, j, temporary, chunk = 4;
     let arr = this.state.products;
@@ -88,6 +92,7 @@ export default class App extends Component {
     }
   }
 
+  //get tags filters option 
   getTagsNameAndCounts() {
     let finalArr = [];
     const counts = {};
@@ -103,7 +108,7 @@ export default class App extends Component {
     }
   }
 
-  //sepete eleman ekliyor
+  //add to cart func
   addToCart = (product) => {
     let newCart = this.state.cart;
     let addedItem = newCart.find(item => item.name === product.name)
@@ -117,6 +122,7 @@ export default class App extends Component {
     this.setState({ cart: newCart });
   }
 
+  //increment button click event func
   incQty = (product) => {
     let newCart = this.state.cart;
     newCart.forEach(item => {
@@ -127,6 +133,7 @@ export default class App extends Component {
     this.setState({ cart: newCart });
   }
 
+  //decrement button click event func
   decQty = (product) => {
     let newCart = this.state.cart;
     newCart.forEach((item, index) => {
@@ -141,10 +148,12 @@ export default class App extends Component {
     this.setState({ cart: newCart });
   }
 
+  //check sorting mode
   changeSortingMode = (sortingMode) => {
     this.setState({ currentSortingMode: sortingMode });
   }
 
+  //brands filter click event func
   selectedBrands = (name) => {
     let newBrand = this.state.brands;
     let addedItem = newBrand.find(item => item.name === name)
@@ -162,6 +171,7 @@ export default class App extends Component {
     this.getItems(newBrand, "manufacturer");
   }
 
+  //tags filter click event func
   selectTags = (name) => {
     let newTags = this.state.selectedTags;
     let addedItem = newTags.find(item => item.name === name)
@@ -174,18 +184,18 @@ export default class App extends Component {
         }
       })
     }
-
-    console.log(newTags)
     this.setState({ selectedTags: newTags });
     this.getItems(newTags, "tags");
   }
 
+  //products button click event (mug or shirt)
   changeSelectedButton = (name) => {
     console.log(name);
     this.setState({ currentSelectedButton: name });
     this.getItems([{ name: name }], "itemType")
   }
 
+  //loader
   renderLoading() {
     return (
       <Grid color="#00BFFF" height={80} width={80} />

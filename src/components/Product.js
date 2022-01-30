@@ -19,6 +19,7 @@ export default class Product extends Component {
         });
     }
 
+    // low to high sort
     priceFilterLowToHigh = (vals) => {
         return vals.sort((a, b) => {
             const aPrice = a.price
@@ -27,6 +28,7 @@ export default class Product extends Component {
         });
     }
 
+    // high to low sort
     priceFilterHighToLow = (vals) => {
         return vals.sort((a, b) => {
             const aPrice = a.price
@@ -35,6 +37,7 @@ export default class Product extends Component {
         });
     }
 
+    // old to new sort
     sortOldToNew = (vals) => {
         return vals.sort((a, b) => {
             const aPrice = a.added
@@ -43,6 +46,7 @@ export default class Product extends Component {
         });
     }
 
+    // new to old sort
     sortNewToOld = (vals) => {
         return vals.sort((a, b) => {
             const aPrice = a.added
