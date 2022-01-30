@@ -1,298 +1,112 @@
 import React, { Component } from 'react';
-import {Row,Col,Card, CardImg,Button} from "reactstrap";
+import { Row, Col, Card, CardImg, Button } from "reactstrap";
 import mug from "./images/black-mug.png";
+import Pagination from "react-js-pagination";
 
 export default class Product extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPage: 1
+        }
+    }
+
+    handleClick(event) {
+        this.setState({
+            currentPage: event
+        });
+    }
+
+    priceFilterLowToHigh = (vals) => {
+        return vals.sort((a, b) => {
+            const aPrice = a.price
+            const bPrice = b.price
+            return aPrice - bPrice;
+        });
+    }
+
+    priceFilterHighToLow = (vals) => {
+        return vals.sort((a, b) => {
+            const aPrice = a.price
+            const bPrice = b.price
+            return bPrice - aPrice;
+        });
+    }
+
+    sortOldToNew = (vals) => {
+        return vals.sort((a, b) => {
+            const aPrice = a.added
+            const bPrice = b.added
+            return aPrice - bPrice;
+        });
+    }
+
+    sortNewToOld = (vals) => {
+        return vals.sort((a, b) => {
+            const aPrice = a.added
+            const bPrice = b.added
+            return bPrice - aPrice;
+        });
+    }
+
     render() {
+
+        const { currentPage } = this.state;
+        const productsPerPage = 16;
+        const dividedProducts = this.props.productlist.length > 0 ? this.props.productlist : [];
+        const allProducts = [].concat.apply([], dividedProducts);
+
+        if (this.props.currentSortingMode === "lowToHigh")      this.priceFilterLowToHigh(allProducts);
+        else if (this.props.currentSortingMode === "highToLow") this.priceFilterHighToLow(allProducts); 
+        else if (this.props.currentSortingMode === "oldToNew")  this.sortOldToNew(allProducts);
+        else if (this.props.currentSortingMode === "newToOld")  this.sortNewToOld(allProducts);
+
+        // Logic for displaying current todos
+        const indexOfLastTodo = currentPage * productsPerPage;
+        const indexOfFirstTodo = indexOfLastTodo - productsPerPage;
+        const currentProducts = allProducts.slice(indexOfFirstTodo, indexOfLastTodo);
+
+        const renderTodos = currentProducts.map((product, index) => {
+            return (
+                <Col key={index} sm="3" className='productParentCard'>
+                    <Card body className='productCard'>
+                        <CardImg
+                            alt="Card image cap"
+                            src={mug}
+                            top
+                            width="92px"
+                            height="92px"
+                        />
+                    </Card>
+                    <p class="price">₺{product.price} </p>
+                    <p class="product-title">{product.name}</p>
+                    <Button className="addButton"
+                        onClick={() => this.props.addToCart(product)}
+                    >
+                        Add
+                    </Button>
+                </Col>
+            );
+        });
+
+        // Logic for displaying page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(allProducts.length / productsPerPage); i++) {
+            pageNumbers.push(i);
+        }
+
         return <div>
-            <Row>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-
-
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
+            <Row >
+                {renderTodos}
             </Row>
-            <Row className='productCardSpacing'>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-
-
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-            </Row>
-            <Row className='productCardSpacing'>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-
-
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-            </Row>
-            <Row className='productCardSpacing'>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-
-
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-                <Col sm="3">
-                    <Card body className='productCard'>
-                    <CardImg
-                        alt="Card image cap"
-                        src={mug}
-                        top
-                        width="92px"
-                        height="92px"
-                        />
-                    </Card>
-                    <p class="price">₺ 14,99</p>
-                    <p class="product-title">Gorgeous Office Mug</p>
-                    <Button className="addButton">
-                        Add
-                    </Button>
-
-                </Col>
-            </Row>
+            <Pagination
+                activePage={this.state.currentPage}
+                itemsCountPerPage={16}
+                totalItemsCount={allProducts.length}
+                pageRangeDisplayed={5}
+                onChange={this.handleClick.bind(this)}
+            />
         </div>;
     }
 }

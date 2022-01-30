@@ -8,7 +8,12 @@ export default class ProductList extends Component {
       <h4 className='productList-title'>Products</h4>
       <Card className='productListCard'>
         <CardBody>
-            <Product></Product>
+          <Product 
+            productlist={this.props.products}
+            addToCart={this.props.addToCart}
+            currentSortingMode={this.props.currentSortingMode}
+            >
+           </Product>
         </CardBody>
       </Card>
     </div>;

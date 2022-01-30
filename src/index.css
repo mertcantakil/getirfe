@@ -10,7 +10,6 @@ body {
   background-color: #e5e5e5 !important;
   font-family: "Open Sans", sans-serif !important;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -29,9 +28,12 @@ code {
 }
 .cardSpacing {
   margin-top: 24px;
-  height: 296px;
-  overflow: hidden;
 }
+.filter-body{
+  max-height: 296px;
+  overflow-y: auto;
+}
+
 .productCardSpacing {
   margin-top: 20px !important;
 }
@@ -60,7 +62,6 @@ code {
 .card-body {
   overflow: auto;
 }
-
 .price {
   font-family: "Helvetica", "Open Sans", "sans-serif";
   font-style: normal;
@@ -77,11 +78,12 @@ code {
   font-size: 14px;
   line-height: 20px;
   color: #191919;
+  margin-bottom: 25px !important;
 }
-.addButton{
-  background: #1EA4CE !important;
+.addButton {
+  background: #1ea4ce !important;
   border-radius: 2px !important;
-  width: 100% !important;
+  width: 132.5px !important;
   height: 22px !important;
   text-align: center !important;
   vertical-align: center !important;
@@ -89,13 +91,19 @@ code {
   font-weight: 600 !important;
   font-size: 12px !important;
   line-height: 20px !important;
-  padding:0 !important;
-  color: #FFFFFF !important;
-  border:0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  position: absolute;
+  bottom: 0;
+}
+.productParentCard {
+  position: relative;
+  margin-top: 10px !important;
 }
 
 /*Filter CSS*/
-.css-ahj2mt-MuiTypography-root{
+.css-ahj2mt-MuiTypography-root {
   font-family: "Open Sans", sans-serif !important;
   color: #525252 !important;
   font-style: normal !important;
@@ -105,24 +113,24 @@ code {
   /* identical to box height, or 129% */
   letter-spacing: 0.16px !important;
 }
+
 ::placeholder {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.15px;
-  color: #A8A8A8;
+  color: #a8a8a8;
 }
 /*Cart Button CSS*/
 .cartButtonLink {
   height: 100% !important;
-  padding:0 !important;
-  
+  padding: 0 !important;
 }
-.cartButton{
+.cartButton {
   width: 129px !important;
   background-color: #147594 !important;
-  color:#FFFFFF;
+  color: #ffffff;
   height: 100%;
   font-style: normal;
   font-weight: 600;
@@ -132,19 +140,21 @@ code {
 }
 
 /*Cart Detail CSS*/
-.cartDetailDiv{
+.cartDetailDiv {
   box-sizing: border-box;
   width: 100%;
   height: 338px;
-  border: 6px solid #1EA4CE;
+  max-height: 338px;
+  overflow-y:auto;
+  border: 6px solid #1ea4ce;
   border-radius: 2px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 15px;
 }
-.cartDetailComp{
+.cartDetailComp {
   padding-right: 4px !important;
 }
-.cart-title{
+.cart-title {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -152,30 +162,29 @@ code {
   letter-spacing: 0.16px;
   color: #191919;
 }
-.cart-price{
+.cart-price {
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.16px;
-  color: #1EA4CE;
+  color: #1ea4ce;
 }
-
-.cart-button{
+.cart-button {
   width: 25% !important;
-  background-color: #FFFFFF !important;
-  border:0 !important;
-  color: #1EA4CE !important;
+  background-color: #ffffff !important;
+  border: 0 !important;
+  color: #1ea4ce !important;
 }
-.card-buttons{
+.card-buttons {
   align-items: center;
   justify-content: center;
 }
-.total-amount{
+.total-amount {
   height: 51px;
   width: 92px;
   box-sizing: border-box;
-  border: 1px solid #1EA4CE;
+  border: 1px solid #1ea4ce;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -183,10 +192,47 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1EA4CE;
-  float:right;
-  margin-top:16px;
+  color: #1ea4ce;
+  float: right;
+  margin-top: 16px;
 }
-.cart-item{
-  padding-top:5px
+.cart-item {
+  padding-top: 5px;
+}
+.pagination {
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #ffffff; 
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #E0E0E0; 
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+.css-1m9pwf3{
+  background: #FFFFFF !important;
+  box-shadow: 0px 1px 7px rgba(93, 56, 192, 0.4) !important;
+  border-radius: 2px !important;
+}
+
+.form-control{
+  border: 1px solid #E0E0E0 !important;
+  margin-bottom:17px;
 }

@@ -8,12 +8,10 @@ import FormControl from '@mui/material/FormControl';
 export default class SortingFilter extends Component {
 
   render() {
-    
-    // const [value, setValue] = React.useState('female');
 
-    // const handleChange = (event) => {
-    //   setValue(event.target.value);
-    // };
+    const handleChange = (event) => {
+      this.props.changeSortingMode(event.target.value);
+    };
 
     return <div>
       <p class="filter-title">Sorting</p>
@@ -23,8 +21,8 @@ export default class SortingFilter extends Component {
             <RadioGroup
               aria-labelledby="demo-controlled-radio-buttons-group"
               name="controlled-radio-buttons-group"
-              // value={value}
-              // onChange={handleChange}
+            // value={value}
+             onChange={handleChange}
             >
               <FormControlLabel value="lowToHigh" control={<Radio />} label="Price low to high" />
               <FormControlLabel value="highToLow" control={<Radio />} label="Price high to low" />
