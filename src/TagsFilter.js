@@ -6,8 +6,15 @@ import Checkbox from '@mui/material/Checkbox';
 
 export default class TagsFilter extends Component {
 
+
+  state = {
+    searchStr : "",
+  }
   clickHandler = (event) => (
     this.props.selectedTags(event.target.labels[0].innerText.split('(')[0])
+  )
+  handleSearch = (event) => (
+    this.setState({searchStr : event.target.value})
   )
 
   render() {
@@ -31,11 +38,18 @@ export default class TagsFilter extends Component {
               name="search"
               placeholder="Search tag"
               type="search"
+              onBlur={this.handleSearch}
             />
             {
-              convertedArray.map((element) => (
-                <FormControlLabel control={<Checkbox />} label={element.name + '(' + element.value + ')'} key={++count} onClick={this.clickHandler}/>
-              ))
+              convertedArray.map((element) => {
+                if(this.state.searchStr === ""){
+                  return <FormControlLabel control={<Checkbox />} label={element.name + '(' + element.value + ')'} key={++count} onClick={this.clickHandler}/>
+                }else{
+                  if(element.name.includes(this.state.searchStr)){
+                    return <FormControlLabel control={<Checkbox />} label={element.name + '(' + element.value + ')'} key={++count} onClick={this.clickHandler}/>
+                  }
+                }
+              })
             }
           </FormGroup>
         </CardBody>
