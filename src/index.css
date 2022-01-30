@@ -29,7 +29,7 @@ code {
 .cardSpacing {
   margin-top: 24px;
 }
-.filter-body{
+.filter-body {
   max-height: 296px;
   overflow-y: auto;
 }
@@ -145,7 +145,7 @@ code {
   width: 100%;
   height: 338px;
   max-height: 338px;
-  overflow-y:auto;
+  overflow-y: auto;
   border: 6px solid #1ea4ce;
   border-radius: 2px;
   background-color: #ffffff;
@@ -211,28 +211,85 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #ffffff; 
+  box-shadow: inset 0 0 5px #ffffff;
   border-radius: 4px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #E0E0E0; 
+  background: #e0e0e0;
   border-radius: 4px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: #b30000;
 }
 
-.css-1m9pwf3{
-  background: #FFFFFF !important;
+.css-1m9pwf3 {
+  background: #ffffff !important;
   box-shadow: 0px 1px 7px rgba(93, 56, 192, 0.4) !important;
   border-radius: 2px !important;
 }
 
-.form-control{
-  border: 1px solid #E0E0E0 !important;
-  margin-bottom:17px;
+.form-control {
+  border: 1px solid #e0e0e0 !important;
+  margin-bottom: 17px;
+}
+
+.mugToggleButton  {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 6px 16px !important;
+  width: 60px !important;
+  height: 30px !important;
+  background: #1ea4ce !important;
+  border-radius: 2px !important;
+  border:0 !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  text-align: center !important;
+  color: #F2F0FD !important;
+  margin-left:14px
+}
+.tshirtToggleButton {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 6px 16px !important;
+  width: 60px !important;
+  height: 30px !important;
+  background: #F2F0FD !important;
+  border-radius: 2px !important;
+  border:0 !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  text-align: center !important;
+  color: #1EA4CE !important;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+.footer{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 174%;
+  color: #1EA4CE;
+  text-align: center;
+}
+
+.loader{
+  width: 100%;
+  height: 800px;
+}
+.loader > div{
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

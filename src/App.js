@@ -6,6 +6,7 @@ import ProductList from "./ProductList";
 import CartDetails from "./CartDetails";
 import { Container, Row, Col } from "reactstrap";
 import { React, Component } from "react";
+import { Grid } from 'react-loader-spinner'
 
 
 export default class App extends Component {
@@ -17,16 +18,18 @@ export default class App extends Component {
     companies: [],
     brands: [],
     tags: [],
-    selectedTags:[],
+    selectedTags: [],
     cart: [],
-  }
+    currentSelectedButton: "",
+    isloadershow: true,
 
+  }
 
   componentDidMount() {
     this.getItems();
     this.getCompanies();
   }
-  
+
   async getItems(id, name) {
 
     let url = `http://localhost:3000/items`;
@@ -48,6 +51,8 @@ export default class App extends Component {
       this.dividedProducts();
       this.getTagsNameAndCounts();
     })
+    this.setState({isloadershow: false});
+    
   }
 
   async getCompanies(id) {
@@ -64,7 +69,6 @@ export default class App extends Component {
         url += "?name=" + id[0].name;
       }
     }
-
 
     const responseCompanies = await fetch(url)
     const jsonCompanies = await responseCompanies.json();
@@ -155,7 +159,7 @@ export default class App extends Component {
     }
 
     this.setState({ brands: newBrand });
-    this.getItems(newBrand,"manufacturer");
+    this.getItems(newBrand, "manufacturer");
   }
 
   selectTags = (name) => {
@@ -173,18 +177,33 @@ export default class App extends Component {
 
     console.log(newTags)
     this.setState({ selectedTags: newTags });
-    this.getItems(newTags,"tags");
+    this.getItems(newTags, "tags");
+  }
+
+  changeSelectedButton = (name) => {
+    console.log(name);
+    this.setState({ currentSelectedButton: name });
+    this.getItems([{ name: name }], "itemType")
+  }
+
+  renderLoading() {
+    return (
+      <Grid color="#00BFFF" height={80} width={80}/>
+    )
   }
 
   render() {
-    return (
-      <div className="App">
-        <Navi
-          cart={this.state.cart}
-        >
 
-        </Navi>
-        <Container className="mt-4">
+    let { isloadershow } = this.state;
+
+    const renderLoading = () => {
+      if (isloadershow) {
+        return <div class="loader">
+              <Grid color="#00BFFF" height={80} width={80} />
+          </div>
+      }
+      else {
+        return <Container className="mt-4">
           <Row>
             <Col xs="3">
               <SortingFilter
@@ -209,24 +228,31 @@ export default class App extends Component {
                 products={this.state.dividedProducts}
                 currentSortingMode={this.state.currentSortingMode}
                 selectedBrands={this.state.brands}
+                changeSelectedButton={this.changeSelectedButton}
               >
               </ProductList>
             </Col>
             <Col xs="3" className="cartDetailComp">
               <CartDetails
-
                 products={this.state.dividedProducts}
                 cart={this.state.cart}
                 incQty={this.incQty}
                 decQty={this.decQty}
               >
-
               </CartDetails>
             </Col>
           </Row>
+          <p className="footer mt-4">©2019 Market • Privacy Policy</p>
         </Container>
+      }
+    }
 
+    return (
+      <div className="App">
+        <Navi cart={this.state.cart} ></Navi>
+        {renderLoading()}
+       
       </div>
-    );
+    )
   }
 }

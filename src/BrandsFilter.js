@@ -13,7 +13,7 @@ export default class BrandsFilter extends Component {
   render() {
 
     return <div className="cardSpacing">
-      <p class="filter-title">Brands</p>
+      <p className="filter-title">Brands</p>
       <Card >
         <CardBody className='filter-body'>
           <FormGroup>

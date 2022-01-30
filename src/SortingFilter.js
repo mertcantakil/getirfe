@@ -14,7 +14,7 @@ export default class SortingFilter extends Component {
     };
 
     return <div>
-      <p class="filter-title">Sorting</p>
+      <p className="filter-title">Sorting</p>
       <Card >
         <CardBody>
           <FormControl>

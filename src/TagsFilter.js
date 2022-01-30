@@ -20,7 +20,7 @@ export default class TagsFilter extends Component {
     })
 
     return <div className="cardSpacing">
-      <p class="filter-title">Tags</p>
+      <p className="filter-title">Tags</p>
       <Card>
         <CardBody className='filter-body'>
           <FormGroup>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardImg, Button } from "reactstrap";
 import mug from "./images/black-mug.png";
+import shirt from "./images/shirt.png";
 import Pagination from "react-js-pagination";
 
 export default class Product extends Component {
@@ -73,7 +74,7 @@ export default class Product extends Component {
                     <Card body className='productCard'>
                         <CardImg
                             alt="Card image cap"
-                            src={mug}
+                            src={this.props.selectedToggle === 'mug' || this.props.selectedToggle === ''  ? mug: shirt}
                             top
                             width="92px"
                             height="92px"
